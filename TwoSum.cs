@@ -9,7 +9,7 @@ namespace TwoSum
     public class TwoSum
     {
         // 73ms
-        public int[] TwoSums(int[] nums, int target)
+        public int[] MyTurn(int[] nums, int target)
         {
             int? x = null;
             int xPos = 0;
