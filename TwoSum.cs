@@ -8,30 +8,26 @@ namespace TwoSum
 {
     public class TwoSum
     {
-        // 73ms
+        // 73ms -> 5ms
         public int[] MyTurn(int[] nums, int target)
         {
-            int? x = null;
-            int xPos = 0;
-            int? y = null;
-            int yPos = 0;
-            for (var i = 0; i < nums.Length || y != null; i++)
+
+            Dictionary<int, int> map = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
             {
-                x = nums[i];
-                for (var j = i + 1; j < nums.Length || y != null; j++)
-                {
-                    yPos = j;
-                    y = target == x + nums[j] ? nums[j] : null;
-                    if (y != null)
-                        break;
-                }
-                xPos = i;
-                if (y != null)
-                    break;
+                map[nums[i]] = i;
             }
 
+            for (int i = 0; i < nums.Length; i++)
+            {
+                var result = target - nums[i];
+                if (map.ContainsKey(result) && map[result] != i)
+                {
+                    return new int[] { i, map[result] };
+                }
 
-            return new int[] { xPos, yPos };
+            }
+            return default;
         }
         // 2ms
         public int[] TwoSumPlus(int[] nums, int target)
