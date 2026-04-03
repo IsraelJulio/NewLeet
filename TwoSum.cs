@@ -8,26 +8,22 @@ namespace TwoSum
 {
     public class TwoSum
     {
-        // 73ms -> 5ms
+        // 73ms -> 5ms -> 4ms "melhor abordagem"
         public int[] MyTurn(int[] nums, int target)
         {
-
             Dictionary<int, int> map = new Dictionary<int, int>();
-            for (int i = 0; i < nums.Length; i++)
-            {
-                map[nums[i]] = i;
-            }
 
             for (int i = 0; i < nums.Length; i++)
             {
                 var result = target - nums[i];
                 if (map.ContainsKey(result) && map[result] != i)
                 {
-                    return new int[] { i, map[result] };
+                    return new int[] { map[result], i };
                 }
-
+                map[nums[i]] = i;
             }
-            return default;
+
+            return new int[] { };
         }
         // 2ms
         public int[] TwoSumPlus(int[] nums, int target)
