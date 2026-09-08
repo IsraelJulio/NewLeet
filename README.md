@@ -39,13 +39,21 @@ Cada laboratório deve produzir pelo menos uma evidência executável ou verific
 
 Pré-requisito: SDK do .NET instalado.
 
+Este repositório contém `MyLeet.sln` e `Questions.csproj` na mesma pasta. Por isso, informe explicitamente qual projeto/solução deve ser usado.
+
 ```bash
 dotnet --info
-dotnet restore
-dotnet run
+dotnet restore Questions.csproj
+dotnet run --project Questions.csproj
 ```
 
-O projeto atual está definido em `Questions.csproj`.
+Também é possível restaurar a solução inteira com:
+
+```bash
+dotnet restore MyLeet.sln
+```
+
+O projeto executável atual é `Questions.csproj`.
 
 ## Evidências
 
