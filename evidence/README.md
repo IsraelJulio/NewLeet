@@ -56,17 +56,25 @@ Antes de fechar um laboratório SSE, anexar pelo menos uma evidência verificáv
 
 Data: 2026-09-08
 
-Status: aguardando validação local pelo usuário.
+Status: validação local em andamento.
 
-Comandos:
+Primeira tentativa:
+- `dotnet --info`: SDK reconhecido.
+- `dotnet restore`: falhou com `MSB1011` porque a pasta contém mais de um arquivo de projeto/solução.
+- causa: coexistem `MyLeet.sln` e `Questions.csproj` na raiz.
+- correção: informar explicitamente o projeto/solução.
+
+Comandos corretos:
 ```bash
-dotnet --info
-dotnet restore
-dotnet run
+dotnet restore Questions.csproj
+dotnet run --project Questions.csproj
 ```
 
-Quando executar, registrar abaixo:
+Alternativa para restaurar a solução:
+```bash
+dotnet restore MyLeet.sln
+```
 
-- `dotnet restore`: PENDENTE
-- `dotnet run`: PENDENTE
-- saída/erro observado: PENDENTE
+Validação pendente:
+- `dotnet restore Questions.csproj`: PENDENTE
+- `dotnet run --project Questions.csproj`: PENDENTE
