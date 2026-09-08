@@ -56,7 +56,7 @@ Antes de fechar um laboratório SSE, anexar pelo menos uma evidência verificáv
 
 Data: 2026-09-08
 
-Status: validação local em andamento.
+Status: VALIDADO LOCALMENTE.
 
 Primeira tentativa:
 - `dotnet --info`: SDK reconhecido.
@@ -64,7 +64,7 @@ Primeira tentativa:
 - causa: coexistem `MyLeet.sln` e `Questions.csproj` na raiz.
 - correção: informar explicitamente o projeto/solução.
 
-Comandos corretos:
+Comandos validados:
 ```bash
 dotnet restore Questions.csproj
 dotnet run --project Questions.csproj
@@ -75,6 +75,10 @@ Alternativa para restaurar a solução:
 dotnet restore MyLeet.sln
 ```
 
-Validação pendente:
-- `dotnet restore Questions.csproj`: PENDENTE
-- `dotnet run --project Questions.csproj`: PENDENTE
+Resultado final:
+- `dotnet restore Questions.csproj`: OK
+- `dotnet run --project Questions.csproj`: OK
+- repositório executa localmente: SIM
+- README de evidências existe: SIM
+
+SET-024: critério de conclusão atendido.
